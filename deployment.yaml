@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-conversao
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: api-conversao
+  template:
+    metadata:
+      labels:
+        app: api-conversao
+    spec:
+      containers:
+        - name: api-conversao
+          image: beto1990/api-conversao:v1
+          ports:
+            - containerPort: 8080
